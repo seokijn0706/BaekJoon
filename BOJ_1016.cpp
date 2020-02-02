@@ -31,6 +31,6 @@ int main(void) {
 	ll min, max; cin >> min >> max;
 
 	cout << solution(min, max);
-
+	
 	return 0;
 }
