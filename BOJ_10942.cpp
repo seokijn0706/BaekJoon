@@ -2,7 +2,7 @@
 using namespace std;
 
 int arr[2001];
-bool dp[2001][2001]; //dp[i][j] i ~ j°¡ ÆÓ¸°µå·ÒÀÎ°¡?
+bool dp[2001][2001]; //dp[i][j] i ~ jê°€ íŒ°ë¦°ë“œë¡¬ì¸ê°€?
 
 int main(void) {
 	ios::ios_base::sync_with_stdio(false);
@@ -17,21 +17,21 @@ int main(void) {
 	}
 	for (int i = 1; i <= n; i++) {
 		int s;
-		/*È¦¼ö*/
+		/*í™€ìˆ˜*/
 		s = i;
 		for (int e = i; e <= n; e++) {
-			if (s <1 || e>n) break; // ¼ö¿­ ¹üÀ§¸¦ ¹ş¾î³ª¸é Á¾·á
-			if (arr[s] == arr[e]) dp[s][e] = true; // ÆÓ¸°µå·ÒÀÌ¸é true
-			else break; // ÆÓ¸°µå·ÒÀÌ ¾Æ´Ï¸é Á¾·á
-			s--; // s¸¦ ¿ŞÂÊÀ¸·Î ÀÌµ¿
+			if (s <1 || e>n) break; // ìˆ˜ì—´ ë²”ìœ„ë¥¼ ë²—ì–´ë‚˜ë©´ ì¢…ë£Œ
+			if (arr[s] == arr[e]) dp[s][e] = true; // íŒ°ë¦°ë“œë¡¬ì´ë©´ true
+			else break; // íŒ°ë¦°ë“œë¡¬ì´ ì•„ë‹ˆë©´ ì¢…ë£Œ
+			s--; // së¥¼ ì™¼ìª½ìœ¼ë¡œ ì´ë™
 		}
-		/*Â¦¼ö*/
-		s = i + 1;
-		for (int e = i; e <= n; e++) {
-			if (s <1 || e>n) break; // ¼ö¿­ ¹üÀ§¸¦ ¹ş¾î³ª¸é Á¾·á
-			if (arr[s] == arr[e]) dp[s][e] = true; // ÆÓ¸°µå·ÒÀÌ¸é true
-			else break; // ÆÓ¸°µå·ÒÀÌ ¾Æ´Ï¸é Á¾·á
-			s--; // s¸¦ ¿ŞÂÊÀ¸·Î ÀÌµ¿
+		/*ì§ìˆ˜*/
+		s = i;
+		for (int e = i + 1; e <= n; e++) {
+			if (s <1 || e>n) break; // ìˆ˜ì—´ ë²”ìœ„ë¥¼ ë²—ì–´ë‚˜ë©´ ì¢…ë£Œ
+			if (arr[s] == arr[e]) dp[s][e] = true; // íŒ°ë¦°ë“œë¡¬ì´ë©´ true
+			else break; // íŒ°ë¦°ë“œë¡¬ì´ ì•„ë‹ˆë©´ ì¢…ë£Œ
+			s--; // së¥¼ ì™¼ìª½ìœ¼ë¡œ ì´ë™
 		}
 	}
 	int m;
