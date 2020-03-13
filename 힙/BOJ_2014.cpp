@@ -18,19 +18,16 @@ int main(void) {
 		pq.push(p);
 	}
 	int cnt = 0;
-	long long prev = 0;
-	while (cnt != n) {
-		long long cur = pq.top();
+	long long cur = 0;
+	while (n--) {
+		cur = pq.top();
 		pq.pop();
-		if (prev == cur) continue;
-		cnt++;
 		for (auto& p : plist) {
 			if ((long long)p * cur >= MAX)break;
 			pq.push(p * cur);
 			if (cur % p == 0) break;
 		}
-		prev = cur;
 	}
-	cout << prev;
+	cout<<cur;
 
 }
